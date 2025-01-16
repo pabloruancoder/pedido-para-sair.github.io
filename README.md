@@ -2,7 +2,7 @@
 
 Este projeto foi baseado no repositório [pedidoDeNamoro](https://github.com/annalaura2/pedidoDeNamoro) e adaptado com algumas modificações para personalizar a experiência. Trata-se de um site interativo e criativo para fazer um convite especial. 
 
-Você pode conferir a versão publicada aqui: [Pedido Para Sair](https://pabloruancoder.github.io/pedido-para-sair.github).
+Você pode conferir a versão publicada aqui: [Pedido Para Sair](https://pabloruancoder.github.io/pedido-para-sair.github.io/).
 
 ---
 
