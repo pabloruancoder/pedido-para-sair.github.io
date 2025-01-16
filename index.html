@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            text-align: center;
+        }
+
+        #conteudo {
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #conteudo h2 {
+            font-size: 1.8em;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: #6e3661;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #84276b;
+            transform: scale(1.1);
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            z-index: 10;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #popup img {
+            width: 150px;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        #popup p {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: #6e3661;
+            font-weight: bold;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="conteudo">
+        <h2>Princesa linda, aceita sair comigo?</h2>
+        <div class="btn-container">
+            <button class="btn" onclick="sim()">SIM</button>
+            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)">NÃO</button>
+        </div>
+    </div>
+
+    <!-- Pop-up e fundo de sobreposição -->
+    <div class="overlay" id="overlay"></div>
+    <div id="popup">
+        <img src="https://media2.giphy.com/media/jkWVZsWkS4RL33seNX/200w.gif?cid=6c09b952sqdx2hk00ghq0oce1gj4s3z5m9hujexu1k6iymxn&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="GIF">
+        <p>Você aceitou sair comigo! ❤️</p>
+    </div>
+
+    <!-- Incluindo a biblioteca de confetes -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function sim() {
+            // Exibe o pop-up com sobreposição
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("overlay");
+            popup.style.display = "block";
+            overlay.style.display = "block";
+
+            // Dispara confetes
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            // Redireciona após 3 segundos
+            setTimeout(() => {
+                location.href = "https://www.youtube.com/watch?v=izGwDsrQ1eQ&ab_channel=georgemichaelVEVO";
+            }, 3000);
+        }
+
+        function desvia(btn) {
+            // Move o botão "NÃO" para uma posição aleatória
+            btn.style.position = 'absolute';
+            btn.style.top = geraPosicao(10, 80);
+            btn.style.left = geraPosicao(10, 80);
+        }
+
+        function geraPosicao(min, max) {
+            return (Math.random() * (max - min) + min) + "%";
+        }
+    </script>
+</body>
+
+</html>
